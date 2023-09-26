@@ -1,0 +1,34 @@
+import smtplib
+
+def banner():
+    print("  _______     _______      _______     _______      _     _      _      _____ _                                            ")
+    print(" |  _____|   |  ___  |    |  ___  |   | ______|    | |   | |    | |    |____  /                                               ")
+    print(" | |         | |___| |    | |   | |   | |          | |   | |    | |        / /                                             ")
+    print(" | |         |  _  __|    | |___| |   | |_____     | |___| |    | |       / /                                           ")
+    print(" | |         | | \ \      |       |   |_____  |    |  ___  |    | |      / /                                                 ")
+    print(" | |         | |  \ \     |  / \  |         | |    | |   | |    | |     / /                                         ")
+    print(" | |_____    | |   \ \    | /   \ |    _____| |    | |   | |    | |    / /____                                             ")
+    print(" |_______|   | |    \_\   |/     \|   |_______|    |_|   |_|    |_|   /_ _____|                                              ")
+    print(f"BY Crashi                        Crashiz Ver 1.0 ")
+    print("Email spammer[1] .........")
+
+banner()
+print()
+
+x = int(input("Menyik feladat fusson le: "))
+if x == 1:
+    toaddrs = input("Add meg az email címét akinek küldöd: ")
+    fromaddrs = "nagykoldok@gmail.com"
+    message = input("Add meg az üzenetet: ")
+    szam = int(input("Add meg hogy hányszor küldje el: "))
+    with smtplib.SMTP('smtp.gmail.com', '587') as smtpserver:
+        smtpserver.ehlo()
+        smtpserver.starttls()
+        smtpserver.ehlo()
+        smtpserver.login('nagykoldok@gmail.com',"fhidnucifyoishzb")
+        for i in range(szam):
+            smtpserver.sendmail(fromaddrs,toaddrs,message)
+            print(i)
+        print("Sikeres email küldés")    
+        print("Vége a programnak")
+
